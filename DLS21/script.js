@@ -1,3 +1,6 @@
+const settings = document.getElementById('settings');
+settings.addEventListener('input', (event) => drawCard());
+
 function value(el) {
     return document.getElementById(el).value;
 };
