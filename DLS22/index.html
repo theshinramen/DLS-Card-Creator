@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DLS Card Creator">
+    <meta property="og:description" content="A card creator for the popular soccer game by First Touch Games.">
+    <meta property="og:url" content="https://dkmshin.github.io/DLS-Card-Creator/DLS22/">
+    <title>DLS Card Creator</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body onload="drawCard()">
+    <header>
+        <h1>DLS Card Creator
+            <span>by <a href="https://www.github.com/dkmshin/DLS-Card-Creator" target="_blank">shinramen</a></span>
+        </h1>
+    </header>
+    <div>
+        <canvas id="card" width="458" height="316"></canvas>
+    </div>
+    <div>
+        <p>Version
+            <select id="version" onchange="window.location.assign(`/${value}`);">
+                <option disabled value="DLS19">
+                    DLS 19
+                </option>
+                <option value="DLS21">
+                    DLS 21
+                </option>
+                <option selected value="DLS22">
+                    DLS 22
+                </option>
+            </select>
+        </p>
+    </div>
+    <div id="settings">
+        <p>Name
+            <input id="firstName" type="text" value="Lionel">
+            <input id="lastName" type="text" value="Messi">
+        </p>
+        <p>Card Type
+            <select id="cardType">
+                <option selected value="legendary">
+                    Legendary
+                </option>
+                <option value="rare">
+                    Rare
+                </option>
+                <option value="common">
+                    Common
+                </option>
+            </select>
+            Height
+            <input id="height" max="999" min="1" type="number" value="171">
+            Position
+            <select id="position">
+                <option selected value="CF">
+                    CF
+                </option>
+                <option value="WF">
+                    WF
+                </option>
+                <option value="LM">
+                    LM
+                </option>
+                <option value="CM">
+                    CM
+                </option>
+                <option value="RM">
+                    RM
+                </option>
+                <option value="AM">
+                    AM
+                </option>
+                <option value="DM">
+                    DM
+                </option>
+                <option value="LB">
+                    LB
+                </option>
+                <option value="CB">
+                    CB
+                </option>
+                <option value="RB">
+                    RB
+                </option>
+                <option value="GK">
+                    GK
+                </option>
+            </select>
+        </p>
+        <p>
+            Foot
+            <!-- <select id="footColor">
+                <option value="black">
+                    Black
+                </option>
+                <option value="white">
+                    White
+                </option>
+                <option value="gold">
+                    Gold
+                </option>
+                <option value="red">
+                    Red
+                </option>
+                <option selected value="blue">
+                    Blue
+                </option>
+                <option value="pink">
+                    Pink
+                </option>
+                <option value="yellow">
+                    Yellow
+                </option>
+                <option value="orange">
+                    Orange
+                </option>
+                <option value="purple">
+                    Purple
+                </option>
+                <option value="brown">
+                    Brown
+                </option>
+                <option value="green">
+                    Green
+                </option>
+                <option value="grey">
+                    Grey
+                </option>
+                <option value="random">
+                    Random
+                </option>
+            </select> -->
+            <select id="foot">
+                <option value="R">
+                    Right
+                </option>
+                <option selected value="L">
+                    Left
+                </option>
+                <option value="B">
+                    Both
+                </option>
+            </select>
+            Overall Rating
+            <input id="rating" max="100" min="1" type="number" value="86">
+        </p>
+        <p>
+            Stats
+            <input id="stats1" max="100" min="1" type="number" value="82">
+            <input id="stats2" max="100" min="1" type="number" value="82">
+            <input id="stats3" max="100" min="1" type="number" value="81">
+            <input id="stats4" max="100" min="1" type="number" value="93"> <br>
+            <input id="stats5" max="100" min="1" type="number" value="67">
+            <input id="stats6" max="100" min="1" type="number" value="58">
+            <input id="stats7" max="100" min="1" type="number" value="92">
+            <input id="stats8" max="100" min="1" type="number" value="91">
+        </p>
+        <p>Image
+            <input accept="image/gif, image/jpeg, image/png" type="file" id="uploadImage" />
+            <button type="button" onclick="document.getElementById('uploadImage').click();">Upload image</button>
+            <button type="button" onclick="saveCard()">Save image</button>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
