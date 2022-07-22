@@ -1,6 +1,14 @@
 const settings = document.getElementById('settings');
 settings.addEventListener('input', (event) => drawCard());
 
+for (var i = 0; i <= 182; i++) {
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = i;
+    document.getElementById('nationality').appendChild(opt);
+}
+document.getElementById('nationality').value = '138';
+
 function value(el) {
     return document.getElementById(el).value;
 };
@@ -32,6 +40,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
+        flagImage: `./assets/flag/${value('nationality')}.png`,
         uploadImage: `./assets/placeholder.png`
     };
 
@@ -45,12 +54,7 @@ function drawCard() {
         ctx.drawImage(images.template, 0, 0);
         ctx.drawImage(images.uploadImage, 18, 32, 224, 224);
         ctx.drawImage(images.positionImage, 202, 87);
-
-        /**
-        // Nationality
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(202, 123, 46, 29);
-        **/
+        ctx.drawImage(images.flagImage, 202, 123, 46, 29);
 
         // First Name
         ctx.textAlign = 'center'
