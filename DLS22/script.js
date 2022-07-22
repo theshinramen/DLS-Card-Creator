@@ -112,7 +112,7 @@ function drawCard() {
         ctx.fill();
 
         // Rating
-        ctx.fillStyle = '#1d2234';
+        ctx.fillStyle = '#ffffff';
         ctx.font = '28px Renogare';
         ctx.fillText(value('rating'), 222, 52);
 
