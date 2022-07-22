@@ -66,8 +66,8 @@ function drawCard() {
         ctx.fillText(value('lastName'), 130, 301);
 
         // Stats
-        ctx.font = '22px Renogare';
-        var coordinates = [[335, 103], [335, 150], [335, 197], [335, 243], [434, 103], [434, 150], [434, 197], [434, 243]];
+        ctx.font = '20px Renogare';
+        var coordinates = [[335, 102], [335, 149], [335, 196], [335, 242], [434, 102], [434, 149], [434, 196], [434, 242]];
         for (var i = 1; i < 9; i++) {
             if (value(`stats${i}`) > 0 && value(`stats${i}`) <= 59) {
                 ctx.fillStyle = '#d9342b';
@@ -85,7 +85,7 @@ function drawCard() {
                 ctx.save();
                 ctx.translate(coordinates[i - 1][0], coordinates[i - 1][1]);
                 ctx.save();
-                ctx.scale(0.85, 1);
+                ctx.scale(0.9, 1);
                 ctx.fillText(value(`stats${i}`), 0, 0);
                 ctx.restore();
                 ctx.restore();
