@@ -10,7 +10,6 @@
     <meta name="google-site-verification" content="CRrsf9TPdGWEMl5jObV1dtqSCtLpIGVoiDT8lNEDGhQ" />
     <title>DLS Card Creator</title>
     <link href="style.css" rel="stylesheet">
-    <meta http-equiv="Refresh" content="0; url='DLS21'" />
 </head>
 
 <body>
@@ -19,9 +18,24 @@
         <h1>DLS Card Creator
             <span>by <a href="https://www.github.com/dkmshin/DLS-Card-Creator" target="_blank">shinramen</a></span>
         </h1>
+        <h3>A card creator for the popular soccer game by First Touch Games.</h3>
     </header>
     <div>
-        <p>Whoops you shouldn't be here!<br>Please click <a href="DLS21">this link</a>.</p>
+        <p>Please choose a game version.</p>
+        <select id="version" onchange="window.location.assign(`/DLS-Card-Creator/${value}`);">
+            <option disabled selected>
+                Select
+            </option>
+            <option disabled value="DLS19">
+                DLS 19
+            </option>
+            <option value="DLS21">
+                DLS 21
+            </option>
+            <option value="DLS22">
+                DLS 22
+            </option>
+        </select>
     </div>
 </body>
 

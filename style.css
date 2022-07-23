@@ -19,3 +19,12 @@ a {
 	text-decoration: none;
 	color: #ffffff;
 }
+
+select {
+	border: none;
+	border-radius: 2px;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	font-size: 15px;
+	font-family: 'Renogare';
+	margin: 2px;
+}
