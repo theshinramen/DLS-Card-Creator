@@ -65,7 +65,7 @@ function drawCard() {
         // Last Name
         ctx.fillStyle = '#ffffff';
         ctx.font = '25px Renogare';
-        ctx.fillText(value('lastName'), 130, 301);
+        ctx.fillText(value('lastName'), 130, value('firstName') == '' ? 295 : 301);
 
         // Stats
         ctx.font = '20px Renogare';
