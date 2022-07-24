@@ -64,7 +64,7 @@ function drawCard() {
 
         // Last Name
         ctx.fillStyle = '#081826';
-        ctx.fillText(value('lastName'), ctx.measureText(value('firstName')).width + 25, 36);
+        ctx.fillText(value('lastName'), value('firstName') == '' ? 17 : ctx.measureText(value('firstName')).width + 25, 36);
 
         // Stats
         ctx.textAlign = 'center'
