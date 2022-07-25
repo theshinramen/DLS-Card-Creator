@@ -1,14 +1,20 @@
 @font-face {
 	font-family: 'Renogare';
-	src: url('Renogare-Regular.woff') format('woff');
+	src: url('assets/Renogare-Regular.woff') format('woff');
 }
 
 body {
-	background-color: #6c75a3;
+	background-image: url('assets/bg/22.png');
+	background-position: center;
+	background-size: cover;
 	font-family: 'Renogare';
 	text-align: center;
 	color: #ffffff;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+div {
+	margin: 25px;
 }
 
 span {
