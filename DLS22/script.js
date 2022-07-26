@@ -13,6 +13,10 @@ function value(el) {
     return document.getElementById(el).value;
 };
 
+function checked(el) {
+    return document.getElementById(el).checked;
+};
+
 // https://www.html5canvastutorials.com/tutorials/html5-canvas-image-loader/
 function loadImages(sources, callback) {
     var images = {};
@@ -31,14 +35,22 @@ function loadImages(sources, callback) {
         };
         images[src].src = sources[src];
     }
+};
+
+function clearCard() {
+    var card = document.getElementById('card');
+    var ctx = card.getContext('2d');
+    ctx.clearRect(0, 0, card.width, card.height);
+    drawCard();
 }
 
 function drawCard() {
     var card = document.getElementById('card');
     var ctx = card.getContext('2d');
+    var maxed = false;
 
     var sources = {
-        template: `./assets/card/${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
+        template: `./assets/card/${checked('maxed') ? 'star/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
         flagImage: `./assets/flag/${value('nationality')}.png`,
         uploadImage: `./assets/placeholder.png`
@@ -48,28 +60,26 @@ function drawCard() {
         sources.uploadImage = URL.createObjectURL(document.getElementById('uploadImage').files[0]);
     }
 
-    ctx.clearRect(0, 0, ctx.width, ctx.height);
-
     loadImages(sources, function (images) {
         ctx.drawImage(images.template, 0, 0);
-        ctx.drawImage(images.uploadImage, 18, 32, 224, 224);
-        ctx.drawImage(images.positionImage, 202, 87);
-        ctx.drawImage(images.flagImage, 202, 123, 46, 29);
+        ctx.drawImage(images.uploadImage, 18, 36, 224, 224);
+        ctx.drawImage(images.positionImage, 202, 91);
+        ctx.drawImage(images.flagImage, 202, 127, 46, 29);
 
         // First Name
         ctx.textAlign = 'center'
         ctx.fillStyle = '#777a85';
         ctx.font = '16px Renogare';
-        ctx.fillText(value('firstName'), 130, 277);
+        ctx.fillText(value('firstName'), 130, 281);
 
         // Last Name
         ctx.fillStyle = '#ffffff';
         ctx.font = '25px Renogare';
-        ctx.fillText(value('lastName'), 130, value('firstName') == '' ? 295 : 301);
+        ctx.fillText(value('lastName'), 130, value('firstName') == '' ? 299 : 305);
 
         // Stats
         ctx.font = '20px Renogare';
-        var coordinates = [[335, 102], [335, 149], [335, 196], [335, 242], [434, 102], [434, 149], [434, 196], [434, 242]];
+        var coordinates = [[335, 106], [335, 153], [335, 200], [335, 246], [434, 106], [434, 153], [434, 200], [434, 246]];
         for (var i = 1; i < 9; i++) {
             if (value(`stats${i}`) > 0 && value(`stats${i}`) <= 59) {
                 ctx.fillStyle = '#d9342b';
@@ -97,37 +107,38 @@ function drawCard() {
         }
 
         // Rating Circle
-        ctx.beginPath();
-        ctx.arc(222, 41, 31, 0, 2 * Math.PI);
-        if (value('rating') > 0 && value('rating') <= 59) {
-            ctx.fillStyle = '#d0504b';
-        } else if (value('rating') > 59 && value('rating') <= 69) {
-            ctx.fillStyle = '#de8735';
-        } else if (value('rating') > 69 && value('rating') <= 79) {
-            ctx.fillStyle = '#E4C059';
-        } else if (value('rating') > 79 && value('rating') <= 89) {
-            ctx.fillStyle = '#63d041';
-        } else if (value('rating') > 89 && value('rating') <= 100) {
-            ctx.fillStyle = '#5697cd';
+        if (!checked('maxed')) {
+            ctx.beginPath();
+            ctx.arc(222, 45, 31, 0, 2 * Math.PI);
+            if (value('rating') > 0 && value('rating') <= 59) {
+                ctx.fillStyle = '#d0504b';
+            } else if (value('rating') > 59 && value('rating') <= 69) {
+                ctx.fillStyle = '#de8735';
+            } else if (value('rating') > 69 && value('rating') <= 79) {
+                ctx.fillStyle = '#E4C059';
+            } else if (value('rating') > 79 && value('rating') <= 89) {
+                ctx.fillStyle = '#63d041';
+            } else if (value('rating') > 89 && value('rating') <= 100) {
+                ctx.fillStyle = '#5697cd';
+            }
+            ctx.fill();
         }
-
-        ctx.fill();
 
         // Rating
         ctx.fillStyle = '#ffffff';
         ctx.font = '28px Renogare';
-        ctx.fillText(value('rating'), 222, 52);
+        ctx.fillText(value('rating'), 222, 56);
 
         // Height
         ctx.textAlign = 'left'
-        ctx.fillStyle = '#1d2234';
+        ctx.fillStyle = checked('maxed') && value('cardType') == 'legendary' ? '#ffffff' : '#1d2234';
         ctx.font = '23px Renogare';
-        ctx.fillText(value('height'), 304, 56);
+        ctx.fillText(value('height'), 304, 60);
 
         // Foot
-        ctx.fillText(value('foot'), 414, 56);
+        ctx.fillText(value('foot'), 414, 60);
     });
-}
+};
 
 // https://daily-dev-tips.com/posts/vanilla-javascript-save-canvas-as-an-image/
 function saveCard() {
@@ -137,4 +148,4 @@ function saveCard() {
     link.href = card.toDataURL();
     link.click();
     link.delete;
-}  
+}; 
