@@ -50,14 +50,29 @@ function drawCard() {
     var maxed = false;
 
     var sources = {
-        template: `./assets/card/${checked('maxed') ? 'star/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
+        template: `./assets/card/${checked('maxed') ? 'maxed/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
         flagImage: `./assets/flag/${value('nationality')}.png`,
-        uploadImage: `./assets/placeholder.png`
+        uploadImage: `./assets/placeholder.png`,
+        starImage: './assets/card/maxed/star/red.png'
     };
 
     if (document.getElementById('uploadImage').files.length > 0) {
         sources.uploadImage = URL.createObjectURL(document.getElementById('uploadImage').files[0]);
+    }
+
+    if (checked('maxed')) {
+        if (value('rating') > 0 && value('rating') <= 59) {
+            sources.starImage = './assets/card/maxed/star/red.png'
+        } else if (value('rating') > 59 && value('rating') <= 69) {
+            sources.starImage = './assets/card/maxed/star/orange.png'
+        } else if (value('rating') > 69 && value('rating') <= 79) {
+            sources.starImage = './assets/card/maxed/star/yellow.png'
+        } else if (value('rating') > 79 && value('rating') <= 89) {
+            sources.starImage = './assets/card/maxed/star/green.png'
+        } else if (value('rating') > 89 && value('rating') <= 100) {
+            sources.starImage = './assets/card/maxed/star/blue.png'
+        }
     }
 
     loadImages(sources, function (images) {
@@ -65,6 +80,7 @@ function drawCard() {
         ctx.drawImage(images.uploadImage, 18, 36, 224, 224);
         ctx.drawImage(images.positionImage, 202, 91);
         ctx.drawImage(images.flagImage, 202, 127, 46, 29);
+        if (checked('maxed')) ctx.drawImage(images.starImage, 178, 0);
 
         // First Name
         ctx.textAlign = 'center'
