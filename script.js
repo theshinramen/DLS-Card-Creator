@@ -2,9 +2,12 @@ var version = 22;
 var versions = [19, 21, 22];
 var i = 0;
 
-if (screen.width < 475) {
+if (screen.width < 510) {
     document.getElementById('card').style = 'width:90%;';
-    document.getElementById('logo').style = 'width:50%;';
+    document.getElementById('logo').style = 'width:40%;';
+}
+if (screen.width < 750) {
+    document.getElementById('buttons').style = 'position:relative;';
 }
 
 setInterval(function () {
