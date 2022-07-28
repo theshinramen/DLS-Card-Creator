@@ -1,6 +1,10 @@
 const settings = document.getElementById('settings');
 settings.addEventListener('input', (event) => drawCard());
 
+if (screen.width < 475) {
+    document.getElementById('card').style = `width:90%;`;
+}
+
 for (var i = 0; i <= 182; i++) {
     var opt = document.createElement('option');
     opt.value = i;
@@ -47,7 +51,6 @@ function clearCard() {
 function drawCard() {
     var card = document.getElementById('card');
     var ctx = card.getContext('2d');
-    var maxed = false;
 
     var sources = {
         template: `./assets/card/${checked('maxed') ? 'maxed/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
