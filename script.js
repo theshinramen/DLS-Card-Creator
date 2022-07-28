@@ -2,6 +2,10 @@ var version = 22;
 var versions = [19, 21, 22];
 var i = 0;
 
+if (screen.width < 475) {
+    document.getElementById('card').style = `width:90%;`;
+}
+
 setInterval(function () {
     document.body.style.backgroundImage = `url(assets/bg/${versions[i]}.png)`;
     document.getElementById('card').src = `assets/card/${versions[i]}.png`;
