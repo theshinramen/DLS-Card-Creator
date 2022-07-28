@@ -1,8 +1,11 @@
 const settings = document.getElementById('settings');
 settings.addEventListener('input', (event) => drawCard());
 
-if (screen.width < 475) {
+if (screen.width < 510) {
     document.getElementById('card').style = 'width:90%;';
+}
+if (screen.width < 750) {
+    document.getElementById('buttons').style = 'position:relative;';
 }
 
 function value(el) {
