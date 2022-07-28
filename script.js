@@ -3,7 +3,8 @@ var versions = [19, 21, 22];
 var i = 0;
 
 if (screen.width < 475) {
-    document.getElementById('card').style = `width:90%;`;
+    document.getElementById('card').style = 'width:90%;';
+    document.getElementById('logo').style = 'width:50%;';
 }
 
 setInterval(function () {

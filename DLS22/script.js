@@ -2,7 +2,7 @@ const settings = document.getElementById('settings');
 settings.addEventListener('input', (event) => drawCard());
 
 if (screen.width < 475) {
-    document.getElementById('card').style = `width:90%;`;
+    document.getElementById('card').style = 'width:90%;';
 }
 
 for (var i = 0; i <= 182; i++) {
