@@ -47,7 +47,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/card${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
-        flagImage: `/assets/flag/${value('nationality')}.png`,
+        flagImage: `DLS-Card-Creator/assets/flag/${value('nationality')}.png`,
         uploadImage: `./assets/placeholder.png`
     };
 
