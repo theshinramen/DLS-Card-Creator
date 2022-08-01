@@ -58,7 +58,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/${checked('maxed') ? 'maxed/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
-        flagImage: `./assets/flag/${value('nationality')}.png`,
+        flagImage: `/assets/flag/${value('nationality')}.png`,
         uploadImage: `./assets/placeholder.png`,
         starImage: './assets/card/maxed/star/red.png'
     };

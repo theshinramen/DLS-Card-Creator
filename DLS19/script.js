@@ -8,7 +8,7 @@ if (screen.width < 750) {
     document.getElementById('buttons').style = 'position:relative;';
 }
 
-for (var i = 0; i <= 159; i++) {
+for (var i = 0; i <= 182; i++) {
     var opt = document.createElement('option');
     opt.value = i;
     opt.innerHTML = i;
@@ -47,7 +47,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/card${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
-        flagImage: `./assets/flag/${value('nationality')}.png`,
+        flagImage: `/assets/flag/${value('nationality')}.png`,
         uploadImage: `./assets/placeholder.png`
     };
 
