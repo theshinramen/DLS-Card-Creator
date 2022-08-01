@@ -62,7 +62,7 @@ function drawCard() {
         ctx.drawImage(images.template, 0, 0);
         ctx.drawImage(images.uploadImage, 18, 32, 224, 224);
         ctx.drawImage(images.positionImage, 202, 87);
-        ctx.drawImage(images.flagImage, 202, 127, 46, 29);
+        ctx.drawImage(images.flagImage, 202, 123, 46, 29);
         ctx.drawImage(images.footImage, 365, 25);
 
         /**
