@@ -45,6 +45,7 @@ function loadImages(sources, callback) {
     }
     for (var src in sources) {
         images[src] = new Image();
+        images[src].crossOrigin = 'anonymous';
         images[src].onload = function () {
             if (++loadedImages >= numImages) {
                 callback(images);
