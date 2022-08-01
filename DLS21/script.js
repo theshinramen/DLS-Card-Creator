@@ -8,6 +8,14 @@ if (screen.width < 750) {
     document.getElementById('buttons').style = 'position:relative;';
 }
 
+for (var i = 0; i <= 182; i++) {
+    var opt = document.createElement('option');
+    opt.value = i;
+    opt.innerHTML = i;
+    document.getElementById('nationality').appendChild(opt);
+}
+document.getElementById('nationality').value = '138';
+
 function value(el) {
     return document.getElementById(el).value;
 };
@@ -39,6 +47,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
+        flagImage: `/assets/flag/${value('nationality')}.png`,
         footImage: `./assets/foot/${value('cardType')}/${value('footColor')}.png`,
         uploadImage: `./assets/placeholder.png`
     };
@@ -53,6 +62,7 @@ function drawCard() {
         ctx.drawImage(images.template, 0, 0);
         ctx.drawImage(images.uploadImage, 18, 32, 224, 224);
         ctx.drawImage(images.positionImage, 202, 87);
+        ctx.drawImage(images.flagImage, 202, 127, 46, 29);
         ctx.drawImage(images.footImage, 365, 25);
 
         /**
