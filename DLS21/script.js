@@ -31,6 +31,7 @@ function loadImages(sources, callback) {
     }
     for (var src in sources) {
         images[src] = new Image();
+        images[src].crossOrigin = 'anonymous';
         images[src].onload = function () {
             if (++loadedImages >= numImages) {
                 callback(images);
@@ -47,7 +48,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
-        flagImage: `/DLS-Card-Creator/assets/flag/${value('nationality')}.png`,
+        flagImage: `https://raw.githubusercontent.com/theshinramen/DLS-Files/main/flags/${value('nationality')}.png`,
         footImage: `./assets/foot/${value('cardType')}/${value('footColor')}.png`,
         uploadImage: `./assets/placeholder.png`
     };
