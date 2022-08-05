@@ -69,7 +69,7 @@ function drawCard() {
     var sources = {
         template: `./assets/card/${checked('maxed') ? 'maxed/' : ''}${value('cardType')}${value('position') == 'GK' ? 'GK' : ''}.png`,
         positionImage: `./assets/position/${value('position')}.png`,
-        playerImage: `https://raw.githubusercontent.com/dkmshin/DLS-Files/main/playerphotos/${value('playerID')}.png`,
+        playerImage: `https://raw.githubusercontent.com/theshinramen/DLS-Files/main/playerphotos/${value('playerID')}.png`,
         flagImage: `/DLS-Card-Creator/assets/flag/${value('nationality')}.png`,
         starImage: './assets/card/maxed/star/red.png'
     };
