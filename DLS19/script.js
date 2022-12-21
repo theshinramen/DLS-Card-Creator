@@ -14,7 +14,7 @@ for (var i = 0; i <= 182; i++) {
     opt.innerHTML = i;
     document.getElementById('nationality').appendChild(opt);
 }
-document.getElementById('nationality').value = '138';
+document.getElementById('nationality').value = '140';
 
 function value(el) {
     return document.getElementById(el).value;
