@@ -1,5 +1,5 @@
-var version = 22;
-var versions = [19, 21, 22];
+var version = 23;
+var versions = [19, 21, 22, 23];
 var i = 0;
 
 if (screen.width < 510) {
