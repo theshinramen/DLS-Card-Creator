@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DLS Card Creator">
+    <meta property="og:description" content="A card creator for the popular soccer game by First Touch Games.">
+    <meta property="og:url" content="https://theshinramen.github.io/DLS-Card-Creator/DLS23/">
+    <title>DLS Card Creator</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body onload="drawCard()">
+    <header>
+        <h1><a href="/DLS-Card-Creator/">DLS CARD CREATOR</a>
+            <span>by <a href="https://www.github.com/theshinramen/DLS-Card-Creator" target="_blank">shinramen</a></span>
+        </h1>
+    </header>
+    <div>
+        <canvas id="card" width="458" height="320"></canvas>
+    </div>
+    <div>
+        <p>Version
+            <select id="version" onchange="window.location.assign(`/DLS-Card-Creator/${value}`);">
+                <option value="DLS19">
+                    DLS 19
+                </option>
+                <option value="DLS21">
+                    DLS 21
+                </option>
+                <option value="DLS22">
+                    DLS 22
+                </option>
+                <option selected value="DLS23">
+                    DLS 23
+                </option>
+            </select>
+        </p>
+    </div>
+    <div id="settings">
+        <p>Name
+            <input id="firstName" type="text" value="LIONEL">
+            <input id="lastName" type="text" value="MESSI">
+        </p>
+        <p>Card Type
+            <select id="cardType">
+                <option selected value="legendary">
+                    Legendary
+                </option>
+                <option value="rare">
+                    Rare
+                </option>
+                <option value="common">
+                    Common
+                </option>
+            </select>
+            <!--
+            Maxed
+            <input id="maxed" type="checkbox" onchange="clearCard();">
+            -->
+            Height
+            <input id="height" max="999" min="1" type="number" value="170">
+            Foot
+            <select id="foot">
+                <option value="R">
+                    Right
+                </option>
+                <option selected value="L">
+                    Left
+                </option>
+                <option value="B">
+                    Both
+                </option>
+            </select>
+        </p>
+        <p>
+            Overall Rating
+            <input id="rating" max="100" min="1" type="number" value="86">
+            Position
+            <select id="position">
+                <option selected value="CF">
+                    CF
+                </option>
+                <option value="SS">
+                    SS
+                </option>
+                <option value="LW">
+                    LW
+                </option>
+                <option value="RW">
+                    RW
+                </option>
+                <option value="LM">
+                    LM
+                </option>
+                <option value="CM">
+                    CM
+                </option>
+                <option value="RM">
+                    RM
+                </option>
+                <option value="AM">
+                    AM
+                </option>
+                <option value="DM">
+                    DM
+                </option>
+                <option value="LB">
+                    LB
+                </option>
+                <option value="CB">
+                    CB
+                </option>
+                <option value="RB">
+                    RB
+                </option>
+                <option value="GK">
+                    GK
+                </option>
+            </select>
+            Nationality <a href="https://github.com/theshinramen/DLS-Files/blob/main/flags/README.md"
+                target="_blank"><sup>(?)</sup></a>
+            <select id="nationality"></select>
+        </p>
+        <p>
+            Stats
+            <input id="stats1" max="100" min="1" type="number" value="80">
+            <input id="stats2" max="100" min="1" type="number" value="87">
+            <input id="stats3" max="100" min="1" type="number" value="77">
+            <input id="stats4" max="100" min="1" type="number" value="93"> <br>
+            <input id="stats5" max="100" min="1" type="number" value="69">
+            <input id="stats6" max="100" min="1" type="number" value="54">
+            <input id="stats7" max="100" min="1" type="number" value="91">
+            <input id="stats8" max="100" min="1" type="number" value="90">
+        </p>
+        <p>Image
+            <select id="playerID"></select>
+            <input accept="image/gif, image/jpeg, image/png" type="file" id="uploadImage" />
+            <button type="button" onclick="document.getElementById('uploadImage').click();">Upload image</button>
+            <button type="button" onclick="saveCard();">Save image</button>
+        </p>
+    </div>
+    <div id="buttons" style="position: fixed; bottom: 20px; right: 20px;">
+        <a href="/DLS-Card-Creator">
+            <img src="/DLS-Card-Creator/assets/icon/home.png" style="border-radius: 10px;" height="30px">
+        </a>
+        <a href="https://www.github.com/theshinramen/DLS-Card-Creator" target="_blank">
+            <img src="/DLS-Card-Creator/assets/icon/github.png" style="border-radius: 10px;" height="30px">
+        </a>
+        <a href="https://www.buymeacoffee.com/shinramen" target="_blank">
+            <img src="/DLS-Card-Creator/assets/icon/bmac.png" style="border-radius: 10px;" height="30px">
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
