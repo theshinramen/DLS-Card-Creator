@@ -1,11 +1,13 @@
 const settings = document.getElementById('settings');
 settings.addEventListener('input', (event) => drawCard());
+var boldText = 'bold ';
 
 if (screen.width < 510) {
     document.getElementById('card').style = 'width:90%;';
 }
 if (screen.width < 750) {
     document.getElementById('buttons').style = 'position:relative;';
+    boldText = '';
 }
 
 for (var i = 0; i <= 183; i++) {
@@ -105,12 +107,12 @@ function drawCard() {
         // First Name
         ctx.textAlign = 'center'
         ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-        ctx.font = 'bold 16px Renogare';
+        ctx.font = boldText + '16px Renogare';
         ctx.fillText(value('firstName'), 130, 280);
 
         // Last Name
         ctx.fillStyle = '#000000';
-        ctx.font = 'bold 25px Renogare';
+        ctx.font = boldText + '25px Renogare';
         ctx.fillText(value('lastName'), 130, value('firstName') == '' ? 299 : 305);
 
         // Stats
@@ -162,14 +164,14 @@ function drawCard() {
 
         // Rating
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 28px Renogare';
+        ctx.font = boldText + '28px Renogare';
         ctx.letterSpacing = '1px';
         ctx.fillText(value('rating'), 223, 55);
 
         // Height
         ctx.textAlign = 'left'
         ctx.fillStyle = /**checked('maxed')**/false && value('cardType') == 'legendary' ? '#ffffff' : '#000000';
-        ctx.font = 'bold 22px Renogare';
+        ctx.font = boldText + '22px Renogare';
         ctx.letterSpacing = '0px';
         ctx.fillText(value('height'), 303, 59);
 
