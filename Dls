@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="DLS Card Creator">
+    <meta property="og:description" content="A card creator for the popular soccer game by First Touch Games.">
+    <meta property="og:url" content="https://theshinramen.github.io/DLS-Card-Creator/">
+    <meta name="google-site-verification" content="CRrsf9TPdGWEMl5jObV1dtqSCtLpIGVoiDT8lNEDGhQ" />
+    <title>DLS Card Creator</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>DLS Card Creator
+            <span>by <a href="https://www.github.com/theshinramen/DLS-Card-Creator" target="_blank">shinramen</a></span>
+        </h1>
+        <h3>A card creator for the popular soccer game by First Touch Games.</h3>
+    </header>
+    <div>
+        <p>Please choose a game version.</p>
+        <select id="version" onchange="window.location.assign(`/DLS-Card-Creator/${value}`);">
+            <option disabled selected>
+                Select
+            </option>
+            <option value="DLS19">
+                DLS 19
+            </option>
+            <option value="DLS21">
+                DLS 21
+            </option>
+            <option value="DLS22">
+                DLS 22
+            </option>
+            <option value="DLS23">
+                DLS 23
+            </option>
+        </select>
+    </div>
+    <div>
+        <a id="link" href="/DLS-Card-Creator/DLS23">
+            <img id="card" width="458px" src="assets/card/23.png">
+        </a>
+    </div>
+    <div>
+        <img id="logo" width="200px" src="assets/logo/23.png">
+    </div>
+    <div style="display:none;">
+        <img src="assets/bg/19.png">
+        <img src="assets/bg/21.png">
+        <img src="assets/bg/22.png">
+    </div>
+    <div id="buttons" style="position: fixed; bottom: 0px; right: 0px;">
+        <a href="https://www.github.com/theshinramen/DLS-Card-Creator" target="_blank">
+            <img src="/DLS-Card-Creator/assets/icon/github.png" style="border-radius: 10px;" height="30px">
+        </a>
+        <a href="https://discord.gg/uMtYYpGaZB">
+            <img src="/DLS-Card-Creator/assets/icon/discord.png" style="border-radius: 10px;" height="30px">
+        </a>
+        <a href="https://www.buymeacoffee.com/shinramen" target="_blank">
+            <img src="/DLS-Card-Creator/assets/icon/bmac.png" style="border-radius: 10px;" height="30px">
+        </a>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
